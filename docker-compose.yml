@@ -49,7 +49,7 @@ services:
       STORAGE_BUCKET_NAME: ${STORAGE_BUCKET_NAME:-}
       STORAGE_REGION_NAME: ${STORAGE_REGION_NAME:-}
       STORAGE_ENDPOINT_URL: ${STORAGE_ENDPOINT_URL:-}
-      STORAGES: '{"default":{"BACKEND":"qfieldcloud.filestorage.backend.QfcS3Boto3Storage","OPTIONS":{"access_key":"admin","lXbwKUvAtKdxqqpN1a8gvQYbn7qUzccn3yLu48r1hl1aSul0AomTxVxhTq0LQmekHtQ":"changeme123","bucket_name":"qfieldcloud","region_name":"us-east-1","endpoint_url":"http://10.0.0.1:9000"},"QFC_IS_LEGACY":false}}'
+      STORAGES: '{"default":{"BACKEND":"qfieldcloud.filestorage.backend.QfcS3Boto3Storage","OPTIONS":{"access_key":"admin","lXbwKUvAtKdxqqpN1a8gvQYbn7qUzccn3yLu48r1hl1aSul0AomTxVxhTq0LQmekHtQ","bucket_name":"qfieldcloud","region_name":"us-east-1","endpoint_url":"http://10.0.0.1:9000"},"QFC_IS_LEGACY":false}}'
       STORAGES_PROJECT_DEFAULT_STORAGE: default
       STORAGES_PROJECT_DEFAULT_ATTACHMENTS_STORAGE: default
       STORAGE_PROJECT_DEFAULT_ATTACHMENTS_VERSIONED: ${STORAGE_PROJECT_DEFAULT_ATTACHMENTS_VERSIONED:-}
