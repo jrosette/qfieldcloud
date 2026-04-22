@@ -26,6 +26,7 @@ services:
         --workers ${GUNICORN_WORKERS}
         --threads ${GUNICORN_THREADS}
     volumes:
+      - staticfiles:/usr/src/app/staticfiles
       - static_volume:/usr/src/app/staticfiles
       - media_volume:/usr/src/app/mediafiles/
       - custom_ca_certificates:/etc/ssl/certs/:ro
@@ -101,6 +102,7 @@ services:
       context: ./docker-nginx
     restart: unless-stopped
     volumes:
+      - staticfiles:/usr/src/app/staticfiles:ro
       - ./conf/certbot/conf:/etc/letsencrypt:ro
       - ./conf/nginx/certs/:/etc/nginx/certs/:ro
       - ./conf/nginx/config.d:/etc/nginx/config.d/:ro
@@ -212,6 +214,7 @@ services:
 
 volumes:
   static_volume:
+  staticfiles:
   media_volume:
   transformation_grids:
   certbot_www:
