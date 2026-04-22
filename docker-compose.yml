@@ -25,6 +25,9 @@ services:
         --max-requests ${GUNICORN_MAX_REQUESTS}
         --workers ${GUNICORN_WORKERS}
         --threads ${GUNICORN_THREADS}
+
+        sh -c "python manage.py collectstatic --noinput &&
+             gunicorn ..."
     volumes:
       - staticfiles:/usr/src/app/staticfiles
       - static_volume:/usr/src/app/staticfiles
