@@ -17,15 +17,7 @@ services:
       target: webserver_runtime
       network: host
     restart: unless-stopped
-    command: >
-      sh -c "python manage.py collectstatic --noinput &&
-      gunicorn
-        qfieldcloud.wsgi:application
-        --bind 0.0.0.0:8000
-        --timeout ${GUNICORN_TIMEOUT_S}
-        --max-requests ${GUNICORN_MAX_REQUESTS}
-        --workers ${GUNICORN_WORKERS}
-        --threads ${GUNICORN_THREADS}"
+    command: sh -c "python manage.py collectstatic --noinput && gunicorn qfieldcloud.wsgi:application --bind 0.0.0.0:8000 --timeout ${GUNICORN_TIMEOUT_S} --max-requests ${GUNICORN_MAX_REQUESTS} --workers ${GUNICORN_WORKERS} --threads ${GUNICORN_THREADS}"
     volumes:
       - staticfiles:/usr/src/app/staticfiles
       - static_volume:/usr/src/app/staticfiles
