@@ -5,6 +5,11 @@ x-logging: &default-logging
     max-file: "10"
     tag: "{{.ImageName}}|{{.Name}}|{{.ImageFullID}}|{{.FullID}}"
 
+
+build:
+  args:
+    NODE_ENV: production
+
 services:
   app: &default-django
     build:
