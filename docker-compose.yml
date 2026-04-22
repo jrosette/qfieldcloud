@@ -20,7 +20,6 @@ services:
     command: sh -c "python manage.py collectstatic --noinput && gunicorn qfieldcloud.wsgi:application --bind 0.0.0.0:8000 --timeout ${GUNICORN_TIMEOUT_S} --max-requests ${GUNICORN_MAX_REQUESTS} --workers ${GUNICORN_WORKERS} --threads ${GUNICORN_THREADS}"
     volumes:
       - staticfiles:/usr/src/app/staticfiles
-      - static_volume:/usr/src/app/staticfiles
       - media_volume:/usr/src/app/mediafiles/
       - custom_ca_certificates:/etc/ssl/certs/:ro
     environment: &django-env
