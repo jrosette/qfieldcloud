@@ -152,7 +152,7 @@ services:
       args:
         DEBUG_BUILD: ${DEBUG}
     tty: true
-    command: python3 /usr/src/app/entrypoint.py
+    command: bash -c "echo QGIS built"
     logging: *default-logging
     stop_grace_period: 15m
 
