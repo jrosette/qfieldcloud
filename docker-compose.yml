@@ -152,7 +152,7 @@ services:
       args:
         DEBUG_BUILD: ${DEBUG}
     tty: true
-    command: bash -c "echo QGIS built"
+    command: python manage.py dequeue
     logging: *default-logging
     stop_grace_period: 15m
 
