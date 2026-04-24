@@ -152,7 +152,7 @@ services:
       args:
         DEBUG_BUILD: ${DEBUG}
     tty: true
-    command: python manage.py dequeue
+    command: python3 manage.py dequeue
     logging: *default-logging
     stop_grace_period: 15m
 
