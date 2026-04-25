@@ -67,7 +67,7 @@ server {
   }
 
   # prevent access by IP
-  if ($http_host !~ "${QFIELDCLOUD_HOST}(:${WEB_HTTP_PORT})?") {
+  if ($http_host !~ "${QFIELDCLOUD_HOST}(:${WEB_HTTP_PORT})?|^nginx$")  {
     return 444;
   }
 
