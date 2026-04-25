@@ -153,6 +153,8 @@ services:
         DEBUG_BUILD: ${DEBUG}
     tty: true
     command: bash -c "echo QGIS built"
+    extra_hosts:
+    - "qfield.vz-telecom.com:10.0.2.3"
     logging: *default-logging
     stop_grace_period: 15m
 
