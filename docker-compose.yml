@@ -22,6 +22,7 @@ services:
       - staticfiles:/usr/src/app/staticfiles
       - media_volume:/usr/src/app/mediafiles/
       - custom_ca_certificates:/etc/ssl/certs/:ro
+      - /opt/qfieldcloud_cleanup.py:/opt/qfieldcloud_cleanup.py
     environment: &django-env
       DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
       DJANGO_USE_X_FORWARDED_HOST: ${DJANGO_USE_X_FORWARDED_HOST}
@@ -88,6 +89,9 @@ services:
       ofelia.job-exec.runcrons.no-overlap: "true"
       ofelia.job-exec.runcrons.schedule: "@every 1m"
       ofelia.job-exec.runcrons.command: python manage.py runcrons
+      ofelia.job-exec.cleanup-versions.schedule: "0 2 * * *"
+      ofelia.job-exec.cleanup-versions.no-overlap: "true"
+      ofelia.job-exec.cleanup-versions.command: python3 /opt/qfieldcloud_cleanup.py
 
   nginx:
     build:
