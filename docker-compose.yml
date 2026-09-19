@@ -6,6 +6,9 @@ x-logging: &default-logging
     tag: "{{.ImageName}}|{{.Name}}|{{.ImageFullID}}|{{.FullID}}"
 
 
+
+
+
 build:
   args:
     NODE_ENV: production
@@ -151,6 +154,7 @@ services:
 
   qgis:
     image: qfieldcloud-qgis
+    restart: "no"
     build:
       context: ./docker-qgis
       network: host
@@ -202,6 +206,7 @@ services:
 
   mirror_transformation_grids:
     image: k3rnelpan1c/alpine-wget:latest
+    restart: "no"
     command: |
       wget --mirror https://cdn.proj.org/ -P /transformation_grids --no-host-directories
       && chmod a+r /transformation_grids/*
